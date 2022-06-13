@@ -8,7 +8,16 @@ interface ICanvasAnimationProps {
 }
 
 const CanvasAnimation: React.FC<ICanvasAnimationProps> = ({ canvasWidth, canvasHeight }) => {
-  const canvasRef: RefObject<HTMLCanvasElement> = useCanvas(canvasWidth, canvasHeight);
+  const fillBackground = (ctx: CanvasRenderingContext2D) => {
+    ctx.fillStyle = 'rgb(31, 31, 36)';
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+  };
+
+  const canvasRef: RefObject<HTMLCanvasElement> = useCanvas(
+    canvasWidth,
+    canvasHeight,
+    fillBackground,
+  );
 
   return <canvas ref={canvasRef} />;
 };
