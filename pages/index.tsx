@@ -1,8 +1,6 @@
 import type { NextPage } from 'next';
 import { useRef } from 'react';
 
-import styled from 'styled-components';
-
 import useWindowSize from '../hooks/useWindowSize';
 
 import CanvasAnimation from './CanvasAnimation';
@@ -13,15 +11,10 @@ const Home: NextPage = () => {
   const { width, height } = useWindowSize(mainRef);
 
   return (
-    <Main ref={mainRef}>
+    <main ref={mainRef} style={{ width: '100vw', height: '100vh' }}>
       <CanvasAnimation canvasWidth={width} canvasHeight={height} />
-    </Main>
+    </main>
   );
 };
 
 export default Home;
-
-const Main = styled.main`
-  width: 100vw;
-  height: 100vh;
-`;
