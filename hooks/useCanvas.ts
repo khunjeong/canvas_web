@@ -24,10 +24,20 @@ const useCanvas = (
       }
     };
     setCanvas();
-    if (ctx) {
-      animate(ctx);
-    }
-  }, [canvasWidth, canvasHeight]);
+
+    let requestId: number;
+    const requestAnimation = () => {
+      requestId = window.requestAnimationFrame(requestAnimation);
+      if (ctx) {
+        animate(ctx);
+      }
+    };
+    requestAnimation();
+
+    return () => {
+      window.cancelAnimationFrame(requestId);
+    };
+  }, [canvasWidth, canvasHeight, animate]);
 
   return canvasRef;
 };

@@ -27,6 +27,9 @@ export class PointLine implements IPointLine {
   }
 
   animate(ctx: CanvasRenderingContext2D) {
+    this.radian += this.VELOCITY;
+    this.pointCenterY = this.AMPLITUDE * Math.sin(this.radian) + this.CENTER_LINE;
+
     ctx.beginPath();
     ctx.fillStyle = 'rgb(102, 103, 171)';
     ctx.arc(this.pointCenterX, this.pointCenterY, this.POINT_RADIUS, 0, PI2);
