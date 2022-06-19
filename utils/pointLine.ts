@@ -31,7 +31,7 @@ export class PointLine implements IPointLine {
     this.pointCenterY = this.AMPLITUDE * Math.sin(this.radian) + this.CENTER_LINE;
 
     ctx.beginPath();
-    ctx.fillStyle = 'rgb(102, 103, 171)';
+    ctx.fillStyle = '#00a3ff';
     ctx.arc(this.pointCenterX, this.pointCenterY, this.POINT_RADIUS, 0, PI2);
     ctx.fill();
   }

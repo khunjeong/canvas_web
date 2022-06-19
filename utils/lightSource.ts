@@ -30,8 +30,8 @@ export class LightSource implements ILightSource {
       this.centerY,
       gradationRadius,
     );
-    gradation.addColorStop(0, 'rgb(102,103, 171, 0.2)');
-    gradation.addColorStop(0, 'rgb(31, 31, 36, 0.1)');
+    gradation.addColorStop(0, '#f9f9f933');
+    gradation.addColorStop(0, '#f9f9f91a');
     ctx.fillStyle = gradation;
     ctx.arc(this.centerX, this.centerY, gradationRadius, 0, PI2);
     ctx.fill();
@@ -39,13 +39,13 @@ export class LightSource implements ILightSource {
 
   drawLightSource(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
-    ctx.fillStyle = 'rgb(102, 103, 171)';
+    ctx.fillStyle = '#00a3ff';
     ctx.arc(this.centerX, this.centerY, this.radius, 0, PI2);
     ctx.fill();
   }
 
   drawLightLines(ctx: CanvasRenderingContext2D, pointCenterX: number, pointCenterY: number) {
-    ctx.strokeStyle = 'rgb(176,176,212,0.24)';
+    ctx.strokeStyle = '#d4f0ff80';
     ctx.lineWidth = 1;
     ctx.moveTo(this.centerX, this.centerY - this.radius);
     ctx.lineTo(pointCenterX, pointCenterY);
